@@ -19,7 +19,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Variables
-version="1.7"
+version="1.8"
 author="Trabbit"
 
 # Define color codes
@@ -57,9 +57,9 @@ cleanup() {
 trap cleanup SIGINT
 
 # Define the YouTube banner command
-youtube_banner='echo -e " [ \e]8;;https://www.youtube.com/@trabbitone\a${BG_RED}${WHITE} You${RED}${BG_WHITE}Tube ${RESET}\e]8;;\a ] "'
-rumble_banner='" [ \e]8;;https://rumble.com/TrabbitOne\a${BG_GREEN}${WHITE} Rumble ${RESET}\e]8;;\a ] "'
-github_banner='" [ \e]8;;https://github.com/Trabbit0ne\a${BG_WHITE}${BLACK} GitHub ${RESET}\e]8;;\a ] "'
+youtube_banner='echo -e " [ \e]8;;https://www.youtube.com/@TrabbitOne\a YouTube ${RESET}\e]8;;\a ] "'
+rumble_banner='" [ \e]8;;https://rumble.com/TrabbitOne\a Rumble ${RESET}\e]8;;\a ] "'
+github_banner='" [ \e]8;;https://github.com/Trabbit0ne\a GitHub ${RESET}\e]8;;\a ] "'
 
 # Execute the YouTube banner command and capture output
 banner_output=$(eval "$youtube_banner" "//" "$rumble_banner" "//" "$github_banner")
@@ -81,20 +81,20 @@ display_menu() {
     echo -e "$banner_output"
     echo "_______________________________________________________________________________"
     echo
-    echo -e " - [${CYAN}1${RESET}]. ${WHITE}Subdomain Scan (${GREEN}SubFinder${RESET}) - (${CYAN}Subdomain Enumeration Tool${RESET})"
-    echo -e " - [${CYAN}2${RESET}]. ${WHITE}Directory Fuzzing (${GREEN}FFuf${RESET}) - (${CYAN}Directory Fuzzing & Enumeration${RESET})"
-    echo -e " - [${CYAN}3${RESET}]. ${WHITE}Network Mapping (${GREEN}Nmap${RESET}) - (${CYAN}Network Mapping Tool${RESET})"
-    echo -e " - [${CYAN}4${RESET}]. ${WHITE}XSS Scan (${GREEN}XSStrike${RESET}) - (${CYAN}Cross Site Scripting vulnerability Scanner${RESET})"
-    echo -e " - [${CYAN}5${RESET}]. ${WHITE}SQLi Scan (${GREEN}Sqlmap${RESET}) - (${CYAN}SQL Injection Vulnerability Scanner${RESET})"
-    echo -e " - [${CYAN}6${RESET}]. ${WHITE}Wordpress Tools (${GREEN}wpscan${RESET}) - (${CYAN}Wordpress Multi-Usage Scanner${RESET})"
-    echo -e " - [${CYAN}7${RESET}]. ${WHITE}Admin Panel Finder - (${GREEN}Admin Panel Finder${RESET}) - (${CYAN}Find Admin Panel Of Web Servers${RESET})"
-    echo -e " - [${CYAN}8${RESET}]. ${WHITE}Web Scrapping Automation (${GREEN}Hetter${RESET}) - (${CYAN}Dorking & Google Search SERP/Links Scraper${RESET})"
-    echo -e " - [${CYAN}9${RESET}]. ${WHITE}SShash (${GREEN}SSHash${RESET}) - (${CYAN}SSH/FTP Brute Forcing Tool${RESET})"
-    echo -e " - [${CYAN}10${RESET}]. ${WHITE}Http Parameter Finder [${YELLOW}1${RESET}] (${GREEN}Paramspider${RESET}) - (${CYAN}Http Parameter Scan${RESET})"
-    echo -e " - [${CYAN}11${RESET}]. ${WHITE}Http Parameter Finder [${YELLOW}2${RESET}] (${GREEN}Arjun${RESET}) - (${CYAN}Http Parameter Scan${RESET})"
-    echo -e " - [${CYAN}12${RESET}]. ${WHITE}Original Server IP Finder (${GREEN}Cloudflare-Origin-IP${RESET}) - (${CYAN}Original Server IP Finder${RESET})"
-    echo -e " - [${CYAN}13${RESET}]. ${WHITE}Loctrac IP Tracker (${GREEN}Loctrac${RESET}) - (${CYAN}IP Address Location Tracker${RESET})"
-    echo -e " - [${CYAN}Q${RESET}]. ${WHITE}QUIT (${CYAN}Quit the software${RESET})"
+    echo -e " - [${CYAN}1${RESET}]. Subdomain Scan (${GREEN}SubFinder${RESET}) - (${CYAN}Subdomain Enumeration Tool${RESET})"
+    echo -e " - [${CYAN}2${RESET}]. Directory Fuzzing (${GREEN}FFuf${RESET}) - (${CYAN}Directory Fuzzing & Enumeration${RESET})"
+    echo -e " - [${CYAN}3${RESET}]. Network Mapping (${GREEN}Nmap${RESET}) - (${CYAN}Network Mapping Tool${RESET})"
+    echo -e " - [${CYAN}4${RESET}]. XSS Scan (${GREEN}XSStrike${RESET}) - (${CYAN}Cross Site Scripting vulnerability Scanner${RESET})"
+    echo -e " - [${CYAN}5${RESET}]. SQLi Scan (${GREEN}Sqlmap${RESET}) - (${CYAN}SQL Injection Vulnerability Scanner${RESET})"
+    echo -e " - [${CYAN}6${RESET}]. Wordpress Scan (${GREEN}Wp Enumerator${RESET}) - (${CYAN}Wordpress Users Enumerator${RESET})"
+    echo -e " - [${CYAN}7${RESET}]. Admin-Panel Scan - (${GREEN}Admin Panel Finder${RESET}) - (${CYAN}Find Admin Panel Of Web Servers${RESET})"
+    echo -e " - [${CYAN}8${RESET}]. SSh & FTP Server Brute-Forcing (${GREEN}SSHash${RESET}) - (${CYAN}SSH/FTP Brute Forcing Tool${RESET})"
+    echo -e " - [${CYAN}9${RESET}]. Parameter Scan 1 (${GREEN}Paramspider${RESET}) - (${CYAN}Http Parameter Scan${RESET})"
+    echo -e " - [${CYAN}10${RESET}]. Parameter Scan 2 (${GREEN}Arjun${RESET}) - (${CYAN}Http Parameter Scan${RESET})"
+    echo -e " - [${CYAN}11${RESET}]. Origin IP Finder (${GREEN}IPF${RESET}) - (${CYAN}IPF - Original Server IP Finder${RESET})"
+    echo -e " - [${CYAN}12${RESET}]. IP Address Location Tracking (${GREEN}Loctrac${RESET}) - (${CYAN}IP Address Location Tracker${RESET})"
+    echo -e " - [${CYAN}13${RESET}]. Google Results Scraper - (${GREEN}GRS${RESET}) - (${CYAN}Google search results links serper/scraper${RESET})"
+    echo -e " - [${CYAN}Q${RESET}]. QUIT (${CYAN}Quit the software${RESET})"
     echo
 }
 
@@ -159,21 +159,8 @@ main() {
                 ;;
             6)
                 read -rp "URL: " url
-                echo "Enumeration Types:"
-                echo "- [u] (users)"
-                echo "- [m] (medias)"
-                echo "- [vp] (vulnerable plugins)"
-                echo "- [vt] (vulnerable themes)"
-                echo "- [p] (popular plugins)"
-                echo "- [at] (all themes)"
-                echo "- [cb] (config backups)"
-                echo "- [dbe] (DB exports)"
-                echo "- [tt] (Timthumbs)"
-                echo "- [ap] (all plugins)"
-                echo
-                read -rp "Enumeration Type: " enum_type
                 clear_screen
-                wpscan --url "$url" --enumerate "$enum_type" --random-user-agent --ignore-main-redirect
+                bash WPenum/main.sh $url
                 pause
                 ;;
             7)
@@ -182,24 +169,13 @@ main() {
                 pause
                 ;;
             8)
-                clear_screen
-                python3 hetter/hetter.py
-                read -rp "Display output file content (y/n)?: " yorn
-                if [[ "$yorn" == "y" ]]; then
-                    read -rp "Outputted file: " outputfilename
-                    clear_screen
-                    cat "$outputfilename"
-                fi
-                pause
-                ;;
-            9)
                 read -rp "Target: " target
                 read -rp "UserList: " user_list
                 read -rp "PassList: " wordlist
                 python3 SSHash/sshash.py -t "$target" -u "$user_list" -l "$wordlist"
                 pause
                 ;;
-            10)
+            9)
                 read -rp "Domain: " domain
                 clear_screen
                 paramspider -d "$domain"
@@ -210,22 +186,44 @@ main() {
                 fi
                 pause
                 ;;
-            11)
+            10)
                 read -rp "Url: " url
                 clear_screen
                 arjun -u $url -q
                 pause
                 ;;
-            12)
-                read -rp "Url: " url
+            11)
+                read -rp "Domain: " domain
                 clear_screen
-                python3 cloudflare-origin-ip/cloudflare-origin-ip.py -u $url
+                bash IPF/main.sh -d $domain
                 pause
                 ;;
-            13)
+            12)
                 read -rp "[-m/IP]: " argument
                 clear_screen
                 bash loctrac_textonly/main.sh $argument
+                pause
+                ;;
+            13)
+                read -rp "Query: " query
+                read -rp "Page(s) [1-5|1,5|5]: " pages
+                read -rp "Link Only/extract link (Y/N): " link_only
+
+                if [[ $link_only == "y" || $link_only == "Y" ]]; then
+                    read -rp "[Output to file (o)] OR [Display (d)]: " output
+
+                    if [[ $output == "o" || $output == "O" ]]; then
+                        read -rp "Output file name: " output_file
+                        clear_screen
+                        python3 grs/grs.py -q "$query" -p "$pages" | grep -oP 'https?://\S+' > "$output_file"
+                    else
+                        clear_screen
+                        python3 grs/grs.py -q "$query" -p "$pages" | grep -oP 'https?://\S+'
+                    fi
+                else
+                    clear_screen
+                    python3 grs/grs.py -q "$query" -p "$pages"
+                fi
                 pause
                 ;;
             [Qq])
